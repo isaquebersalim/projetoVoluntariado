@@ -13,6 +13,50 @@
       <a href="home.html">Home</a>
       <a href="necessidades.html">Ver Necessidades</a>
     </nav>
+
+    <main>
+        <h2>Cadastro de Necessidade</h2>
+        <form id="form-cadastro">
+      <label>Nome da Instituição:
+        <input type="text" id="instituicao" required>
+      </label>
+
+      <label>Tipo de Ajuda:
+        <select id="tipo-ajuda" required>
+          <option value="">Selecione</option>
+          <option>Educação</option>
+          <option>Saúde</option>
+          <option>Meio Ambiente</option>
+          <option>Doação de Alimentos</option>
+          <option>Doação de Roupas</option>
+          <option>Outros</option>
+        </select>
+      </label>
+
+      <label>Título da Necessidade:
+        <input type="text" id="titulo" required>
+      </label>
+
+      <label>Descrição Detalhada:
+        <textarea id="descricao" rows="4" required></textarea>
+      </label>
+
+      <label>Data da Ação:
+        <input type="date" id="data">
+      </label>
+
+      <label>Local da Atividade:
+        <input type="text" id="local" required>
+      </label>
+
+      <label>Contato da Instituição:
+        <input type="text" id="contato" required>
+      </label>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+    </main>
+
   </header>
   </body>
 </html>
