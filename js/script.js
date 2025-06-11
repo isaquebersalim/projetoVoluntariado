@@ -31,6 +31,22 @@ if (listaDiv) {
   if (lista.length === 0) {
     listaDiv.innerHTML = '<p>Não há necessidades cadastradas no momento.</p>';
   } else {
-    
+    lista.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <h3>${item.titulo}</h3>
+        <p><strong>Instituição:</strong> ${item.instituicao}</p>
+        <p><strong>Tipo de Ajuda:</strong> ${item.tipoAjuda}</p>
+        <p><strong>Descrição:</strong> ${item.descricao}</p>
+        <p><strong>Data:</strong> ${item.data || 'A combinar'}</p>
+        <p><strong>Local:</strong> ${item.local}</p>
+        <p><strong>Contato:</strong> ${item.contato}</p>
+      `;
+
+      listaDiv.appendChild(card);
+    });
+
   }
 }
