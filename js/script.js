@@ -22,3 +22,15 @@ if (form) {
     form.reset();
   });
 }
+
+// Verifica se está na página de visualização
+const listaDiv = document.getElementById('lista-necessidades');
+if (listaDiv) {
+  const lista = JSON.parse(localStorage.getItem('necessidades')) || [];
+
+  if (lista.length === 0) {
+    listaDiv.innerHTML = '<p>Não há necessidades cadastradas no momento.</p>';
+  } else {
+    
+  }
+}
