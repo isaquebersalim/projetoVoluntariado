@@ -14,5 +14,11 @@ if (form) {
       contato: document.getElementById('contato').value
     };
 
+    let lista = JSON.parse(localStorage.getItem('necessidades')) || [];
+    lista.push(necessidade);
+    localStorage.setItem('necessidades', JSON.stringify(lista));
+
+    alert('Necessidade cadastrada com sucesso!');
+    form.reset();
   });
 }
