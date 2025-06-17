@@ -31,33 +31,59 @@ if (form) {
 
 // Verifica se está na página de visualização
 const listaDiv = document.getElementById('lista-necessidades');
+const pesquisaInput = document.getElementById('pesquisa');
+const filtroTipoSelect = document.getElementById('filtro-tipo-ajuda');
+
 if (listaDiv) {
-  const lista = JSON.parse(localStorage.getItem('necessidades')) || [];
+  let lista = JSON.parse(localStorage.getItem('necessidades')) || [];
 
-  if (lista.length === 0) {
-    listaDiv.innerHTML = '<p>Não há necessidades cadastradas no momento.</p>';
-  } else {
-    lista.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'card';
+  function renderizarLista(filtroTexto = '', filtroTipo = '') {
+    listaDiv.innerHTML = '';
 
-      card.innerHTML = `
-      <h3>${item.titulo}</h3>
-      <p><strong>Instituição:</strong> ${item.instituicao}</p>
-      <p><strong>Tipo de Ajuda:</strong> ${item.tipoAjuda}</p>
-      <p><strong>Descrição:</strong> ${item.descricao}</p>
-      <p><strong>Data:</strong> ${item.data || 'A combinar'}</p>
-      <p><strong>Endereço:</strong> ${item.rua}, ${item.bairro}, ${item.cidade} - ${item.estado}</p>
-      <p><strong>Contato:</strong> ${item.contato}</p>
-    `;
+    const resultados = lista.filter(item => {
+      const textoMatch =
+        item.titulo.toLowerCase().includes(filtroTexto.toLowerCase()) ||
+        item.descricao.toLowerCase().includes(filtroTexto.toLowerCase());
 
+      const tipoMatch = filtroTipo === '' || item.tipoAjuda === filtroTipo;
 
-
-      listaDiv.appendChild(card);
+      return textoMatch && tipoMatch;
     });
 
+    if (resultados.length === 0) {
+      listaDiv.innerHTML = '<p>Nenhuma necessidade encontrada com os filtros atuais.</p>';
+    } else {
+      resultados.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${item.titulo}</h3>
+          <p><strong>Instituição:</strong> ${item.instituicao}</p>
+          <p><strong>Tipo de Ajuda:</strong> ${item.tipoAjuda}</p>
+          <p><strong>Descrição:</strong> ${item.descricao}</p>
+          <p><strong>Data:</strong> ${item.data || 'A combinar'}</p>
+          <p><strong>Endereço:</strong> ${item.rua}, ${item.bairro}, ${item.cidade} - ${item.estado}</p>
+          <p><strong>Contato:</strong> ${item.contato}</p>
+        `;
+        listaDiv.appendChild(card);
+      });
+    }
   }
+
+  // Evento para o campo de pesquisa
+  pesquisaInput.addEventListener('input', () => {
+    renderizarLista(pesquisaInput.value, filtroTipoSelect.value);
+  });
+
+  // Evento para o filtro de tipo
+  filtroTipoSelect.addEventListener('change', () => {
+    renderizarLista(pesquisaInput.value, filtroTipoSelect.value);
+  });
+
+  // Renderizar inicialmente tudo
+  renderizarLista();
 }
+
 
 const cepInput = document.getElementById('cep');
 
