@@ -47,11 +47,10 @@ if (listaDiv) {
       <p><strong>Tipo de Ajuda:</strong> ${item.tipoAjuda}</p>
       <p><strong>Descrição:</strong> ${item.descricao}</p>
       <p><strong>Data:</strong> ${item.data || 'A combinar'}</p>
-      <p><strong>CEP:</strong> ${item.cep}</p>
       <p><strong>Endereço:</strong> ${item.rua}, ${item.bairro}, ${item.cidade} - ${item.estado}</p>
-      <p><strong>Local:</strong> ${item.local}</p>
       <p><strong>Contato:</strong> ${item.contato}</p>
     `;
+
 
 
       listaDiv.appendChild(card);
