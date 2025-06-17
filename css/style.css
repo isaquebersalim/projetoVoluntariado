@@ -94,3 +94,11 @@ footer {
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
+#filtro-tipo-ajuda {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
