@@ -59,15 +59,17 @@ if (listaDiv) {
       resultados.forEach(item => {
         const card = document.createElement('div');
         card.className = 'card';
-        card.innerHTML = `
+       card.innerHTML = `
           <h3>${item.titulo}</h3>
           <p><strong>Instituição:</strong> ${item.instituicao}</p>
           <p><strong>Tipo de Ajuda:</strong> ${item.tipoAjuda}</p>
           <p><strong>Descrição:</strong> ${item.descricao}</p>
           <p><strong>Data:</strong> ${item.data || 'A combinar'}</p>
-          <p><strong>Endereço:</strong> ${item.rua}, ${item.numero}, ${item.complemento}, ${item.bairro}, ${item.cidade} - ${item.estado}</p>
+          <p><strong>Local:</strong> ${item.local}</p>
+          <p><strong>Endereço:</strong> ${item.rua}, Nº ${item.numero} ${item.complemento ? '- ' + item.complemento : ''}, ${item.bairro}, ${item.cidade} - ${item.estado} | CEP: ${item.cep}</p>
           <p><strong>Contato:</strong> ${item.contato}</p>
         `;
+
         listaDiv.appendChild(card);
       });
     }
