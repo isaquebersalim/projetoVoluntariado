@@ -5,19 +5,22 @@ if (form) {
     e.preventDefault();
     
     const necessidade = {
-      instituicao: document.getElementById('instituicao').value,
-      tipoAjuda: document.getElementById('tipo-ajuda').value,
-      titulo: document.getElementById('titulo').value,
-      descricao: document.getElementById('descricao').value,
-      data: document.getElementById('data').value,
-      cep: document.getElementById('cep').value,
-      rua: document.getElementById('rua').value,
-      bairro: document.getElementById('bairro').value,
-      cidade: document.getElementById('cidade').value,
-      estado: document.getElementById('estado').value,
-      local: document.getElementById('local').value,
-      contato: document.getElementById('contato').value
+    instituicao: document.getElementById('instituicao').value,
+    tipoAjuda: document.getElementById('tipo-ajuda').value,
+    titulo: document.getElementById('titulo').value,
+    descricao: document.getElementById('descricao').value,
+    data: document.getElementById('data').value,
+    local: document.getElementById('local').value,
+    cep: document.getElementById('cep').value,
+    rua: document.getElementById('rua').value,
+    numero: document.getElementById('numero').value,
+    complemento: document.getElementById('complemento').value,
+    bairro: document.getElementById('bairro').value,
+    cidade: document.getElementById('cidade').value,
+    estado: document.getElementById('estado').value,
+    contato: document.getElementById('contato').value
   };
+
 
 
     let lista = JSON.parse(localStorage.getItem('necessidades')) || [];
