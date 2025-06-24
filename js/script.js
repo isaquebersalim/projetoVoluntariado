@@ -10,7 +10,6 @@ if (form) {
     titulo: document.getElementById('titulo').value,
     descricao: document.getElementById('descricao').value,
     data: document.getElementById('data').value,
-    local: document.getElementById('local').value,
     cep: document.getElementById('cep').value,
     rua: document.getElementById('rua').value,
     numero: document.getElementById('numero').value,
